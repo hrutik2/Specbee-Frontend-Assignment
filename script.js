@@ -39,36 +39,74 @@ const speakers = [
     description:
       "John is a strategic marketer with a passion for storytelling, helping Specbee to reach new heights through data-driven marketing initiatives.",
   },
+  {
+    id: 5,
+    name: "John Doe 5",
+    position: "Chief Technical Officer",
+    company: "TechWave",
+    image:
+      "https://t4.ftcdn.net/jpg/02/44/43/69/240_F_244436923_vkMe10KKKiw5bjhZeRDT05moxWcPpdmb.jpg",
+    description:
+      "As Chief Technical Officer, John plays a pivotal role in developing cutting-edge technology solutions for TechWave.",
+  },
+  {
+    id: 6,
+    name: "John Doe 6",
+    position: "Chief Technical Developer",
+    company: "Pantheon",
+    image:
+      "https://t4.ftcdn.net/jpg/02/44/43/69/240_F_244436923_vkMe10KKKiw5bjhZeRDT05moxWcPpdmb.jpg",
+    description:
+      "As Chief Technical Developer, John brings a wealth of experience in software engineering and cloud infrastructure, leading Pantheon’s technical innovations.",
+  },
+  {
+    id: 7,
+    name: "John Doe 7",
+    position: "Chief Marketing Officer",
+    company: "Specbee",
+    image:
+      "https://t4.ftcdn.net/jpg/02/44/43/69/240_F_244436923_vkMe10KKKiw5bjhZeRDT05moxWcPpdmb.jpg",
+    description:
+      "John is a strategic marketer with a passion for storytelling, helping Specbee to reach new heights through data-driven marketing initiatives.",
+  },
+  {
+    id: 8,
+    name: "John Doe 8",
+    position: "Chief Technical Officer",
+    company: "TechWave",
+    image:
+      "https://t4.ftcdn.net/jpg/02/44/43/69/240_F_244436923_vkMe10KKKiw5bjhZeRDT05moxWcPpdmb.jpg",
+    description:
+      "As Chief Technical Officer, John plays a pivotal role in developing cutting-edge technology solutions for TechWave.",
+  },
 ];
 
-function renderSpeakers(speakers) {
+let currentIndex = 0;
+
+const renderSpeakers = () => {
   const speakersList = document.querySelector(".speakers__list");
   speakersList.innerHTML = "";
 
-  speakers.forEach((speaker) => {
+  const currentSpeakers = speakers.slice(currentIndex, currentIndex + 4);
+
+  currentSpeakers.forEach((speaker) => {
     const speakerElement = document.createElement("div");
     speakerElement.classList.add("speaker");
 
     speakerElement.innerHTML = `
-                <img src="${speaker.image}" alt="${speaker.name}" class="speaker__image">
-                <h3 class="speaker__name">${speaker.name}</h3>
-                <p class="speaker__position">${speaker.position}</p>
-                <p class="speaker__company">${speaker.company}</p>
-            `;
-    speakerElement.addEventListener("click", () => {
-      openmodel(
-        speaker.name,
-        speaker.image,
-        speaker.position,
-        speaker.company,
-        speaker.description
-      );
-    });
+        <img src="${speaker.image}" alt="${speaker.name}" class="speaker__image">
+        <h3 class="speaker__name">${speaker.name}</h3>
+        <p class="speaker__position">${speaker.position}</p>
+        <p class="speaker__company">${speaker.company}</p>
+      `;
+
+    speakerElement.addEventListener("click", () => openModal(speaker));
+
     speakersList.appendChild(speakerElement);
   });
-}
+};
 
-function openmodel(name, image, position, company, description) {
+const openModal = ({ name, image, position, company, description }) => {
   const modal = document.querySelector(".modal");
   modal.innerHTML = "";
   const modalContent = document.createElement("div");
@@ -77,7 +115,7 @@ function openmodel(name, image, position, company, description) {
   closeButton.classList.add("close_button");
   closeButton.innerHTML = `
     <button class="modal__close" onclick="closeModal()">✕</button>
-    `;
+    ;`;
   modal.appendChild(closeButton);
 
   modalContent.innerHTML = `
@@ -98,12 +136,29 @@ function openmodel(name, image, position, company, description) {
     `;
   modal.appendChild(modalContent);
   modal.style.display = "block";
-}
-function closeModal() {
-  const modal = document.querySelector(".modal");
-  modal.style.display = "none";
-}
+};
+
+const closeModal = () => {
+  document.querySelector(".modal").style.display = "none";
+};
+
+const nextSlide = () => {
+  if (currentIndex + 4 < speakers.length) {
+    currentIndex += 4;
+    renderSpeakers();
+  }
+};
+
+const prevSlide = () => {
+  if (currentIndex - 4 >= 0) {
+    currentIndex -= 4;
+    renderSpeakers();
+  }
+};
 
 document.addEventListener("DOMContentLoaded", () => {
-  renderSpeakers(speakers);
+  renderSpeakers();
+
+  document.querySelector(".next_button").addEventListener("click", nextSlide);
+  document.querySelector(".prev_button").addEventListener("click", prevSlide);
 });
