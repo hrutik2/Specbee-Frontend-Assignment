@@ -115,7 +115,7 @@ const openModal = ({ name, image, position, company, description }) => {
   closeButton.classList.add("close_button");
   closeButton.innerHTML = `
     <button class="modal__close" onclick="closeModal()">✕</button>
-    ;`;
+    `;
   modal.appendChild(closeButton);
 
   modalContent.innerHTML = `
