@@ -211,19 +211,23 @@
 }
 
 
-@media (max-width: 750px) {
+@media (max-width: 750px) {  
+  .speakers {
+  width: 100%;
+    }
+    
   .speacker_slider{
     width: 100%;
-  }
+    }
   .modal{
     width:100%;
   }
-
-
- 
 }
 
-@media (max-width: 576px) {
+@media (max-width: 576px) {  
+  .speakers {
+  width: 100%;
+  }
   .speacker_slider{
     width:100%;
   }
