@@ -2,19 +2,24 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  font-family: Arial, sans-serif;
 }
 
 .speakers {
+  width: 1200px;
+  margin: auto;
   text-align: center;
   padding: 2rem;
 }
 .speakers__title {
-  font-size: 2rem;
+  font: "Metropolis";
+  font-weight: 700;
+  font-size: 36px;
   margin-bottom: 2rem;
 }
 .speakers__description {
-  font-size: 1rem;
+  font: "Metropolis";
+  font-weight: 400;
+  font-size: 18px;
   color: #555;
   margin-bottom: 2rem;
 }
@@ -33,14 +38,15 @@
 }
 
 .speacker_slider {
-  width: 60%;
+  width: 100%;
   margin: auto;
   display: flex;
+  gap: 16px;
   flex-direction: row;
   margin-bottom: 2.5rem;
 }
 .speacker_slider .speakers__list {
-  width: 92%;
+  width: 100%;
   margin: auto;
 }
 .speacker_slider .prev_button,
@@ -51,31 +57,38 @@
 }
 
 .speaker {
+  color: hsba(0, 0%, 100%, 1);
   border: 1px solid #ddd;
   padding: 1rem;
   width: 100%;
   text-align: center;
-  border-radius: 0.5rem;
-  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  border-radius: 10px;
+  box-shadow: 4px 10px 24px 0px rgba(0, 0, 0, 0.1);
 }
 .speaker__image {
-  width: 100px;
-  height: 100px;
+  width: 150px;
+  height: 150px;
   border-radius: 50%;
   margin-bottom: 1rem;
   object-fit: cover;
 }
 .speaker__name {
-  font-size: 1.25rem;
-  font-weight: bold;
+  font-size: 24px;
+  font: "Metropolis";
+  font-weight: 700;
+  color: hsba(0, 0%, 0%, 1);
 }
 .speaker__position {
-  font-size: 0.9rem;
-  color: #777;
+  font-size: 18px;
+  font: "Metropolis";
+  font-weight: 600;
+  color: hsba(0, 0%, 0%, 1);
 }
 .speaker__company {
-  font-size: 0.8rem;
-  color: #ddd;
+  font-size: 18px;
+  font: "Metropolis";
+  font-weight: 400;
+  color: hsba(0, 0%, 42%, 1);
 }
 
 .button {
@@ -97,11 +110,13 @@
 }
 
 .modal {
-  width: 55%;
+  width: 95%;
   margin: auto;
+  background-color: hsba(0, 0%, 100%, 1);
   margin-top: 1rem;
   margin-bottom: 1rem;
-  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  box-shadow: 4px 10px 24px 0px rgba(0, 0, 0, 0.1);
+  object-fit: contain;
 }
 .modal .close_button {
   width: 100%;
@@ -116,12 +131,14 @@
   border: none;
 }
 .modal__content {
+  width: 95%;
+  margin: auto;
   display: flex;
   justify-content: center;
   padding: 1rem;
 }
 .modal .modal__image {
-  width: 100px;
+  width: 150px;
   height: 150px;
   border-radius: 50%;
   object-fit: cover;
@@ -139,6 +156,47 @@
   padding: 10px;
   border-left: 2px solid rgb(42, 41, 41);
   text-align: justify;
+}
+.modal .modal__name {
+  font-size: 24px;
+  font: "Metropolis";
+  font-weight: 700;
+  color: hsba(0, 0%, 0%, 1);
+}
+.modal .modal__position {
+  font-size: 18px;
+  font: "Metropolis";
+  font-weight: 600;
+  color: hsba(0, 0%, 0%, 1);
+}
+.modal .modal__company {
+  font-size: 16px;
+  font: "Metropolis";
+  font-weight: 400;
+  color: hsba(0, 0%, 42%, 1);
+}
+.modal .modal__description {
+  font-size: 18px;
+  font: "Lora";
+  font-weight: 400;
+  color: hsba(0, 0%, 0%, 1);
+}
+
+@media (max-width: 750px) {
+  .speacker_slider {
+    width: 100%;
+  }
+  .modal {
+    width: 100%;
+  }
+}
+@media (max-width: 576px) {
+  .speacker_slider {
+    width: 100%;
+  }
+  .modal {
+    width: 100%;
+  }
 }
 
 /*# sourceMappingURL=style.css.map */
