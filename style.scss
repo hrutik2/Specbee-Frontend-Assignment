@@ -48,10 +48,14 @@
   margin: auto;
   display: flex;
   gap: 16px;
-  flex-direction: row;
+  
   margin-bottom: 2.5rem;
   .speakers__list{
     width:100%;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+   
+    gap: 16px;
     margin: auto;
 
   }
@@ -214,27 +218,68 @@
 
 @media (max-width: 750px) {  
   .speakers {
-  width: 100%;
+    width: 95%;
+    margin: auto;
     }
+    .speacker_slider{
+      width:100%;
+      margin: auto;
+      margin-top: 20px;
+      margin-bottom: 20px;
+      .speakers__list{
+        width:100%;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+       
+        gap: 16px;
+        margin: auto;
     
-  .speacker_slider{
-    width: 100%;
+      }
     }
-  .modal{
-    width:100%;
-  }
+    .modal{
+      width:95%;
+      margin: auto;
+     
+    }
 }
 
 @media (max-width: 576px) {  
   .speakers {
-  width: 100%;
+  width: 95%;
+  margin: auto;
   }
   .speacker_slider{
-    width:100%;
+    width:90%;
+    display: flex;
+    
+    margin: auto;
+    margin-top: 20px;
+      margin-bottom: 20px;
+    .speakers__list{
+      width:100%;
+      margin: auto;
+      display: block;
+  
+    }
   }
   .modal{
-    width:100%;
+    width:95%;
+    margin: auto;
+    text-align: center;
+
+     &__content {
    
+    display: block;
+   
+  }
+  .modal_content_1{
+    display: block;
+    text-align: center;
+    margin: auto;
+  }
+  .modal_content_2{
+    border:none
+  }
   }
 
 

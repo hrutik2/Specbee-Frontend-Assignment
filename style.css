@@ -42,11 +42,13 @@
   margin: auto;
   display: flex;
   gap: 16px;
-  flex-direction: row;
   margin-bottom: 2.5rem;
 }
 .speacker_slider .speakers__list {
   width: 100%;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
   margin: auto;
 }
 .speacker_slider .prev_button,
@@ -145,6 +147,7 @@
 }
 .modal .modal_content_1 {
   display: flex;
+  gap: 10px;
   width: 70%;
 }
 .modal .modal_content_1 div {
@@ -183,19 +186,60 @@
 }
 
 @media (max-width: 750px) {
+  .speakers {
+    width: 95%;
+    margin: auto;
+  }
   .speacker_slider {
     width: 100%;
+    margin: auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+  .speacker_slider .speakers__list {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+    margin: auto;
   }
   .modal {
-    width: 100%;
+    width: 95%;
+    margin: auto;
   }
 }
 @media (max-width: 576px) {
+  .speakers {
+    width: 95%;
+    margin: auto;
+  }
   .speacker_slider {
+    width: 90%;
+    display: flex;
+    margin: auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+  .speacker_slider .speakers__list {
     width: 100%;
+    margin: auto;
+    display: block;
   }
   .modal {
-    width: 100%;
+    width: 95%;
+    margin: auto;
+    text-align: center;
+  }
+  .modal__content {
+    display: block;
+  }
+  .modal .modal_content_1 {
+    display: block;
+    text-align: center;
+    margin: auto;
+  }
+  .modal .modal_content_2 {
+    border: none;
   }
 }
 
